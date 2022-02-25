@@ -21,6 +21,6 @@ int main(){
     strcpy(book->title,"aaa");
     printf("%s\n",book->title);
     free(book);
-    return 0;    
+    return 1;    
 }
 
