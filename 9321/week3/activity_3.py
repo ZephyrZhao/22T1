@@ -33,7 +33,10 @@ if __name__ == "__main__":
     # Because panda's query method does not work well with column names which contains white spaces
     df.columns = [c.replace(' ', '_') for c in df.columns]
 
-    #
+    '''
+    pd中的sql---pd.query() where 语句 返回的是DataFrame
+
+    '''
     df = df.query('Date_of_Publication > 1866 and Place_of_Publication == "London"')
 
     print_dataframe(df)

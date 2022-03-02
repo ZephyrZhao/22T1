@@ -35,10 +35,34 @@ if __name__ == "__main__":
     city_df = pd.read_csv('City.csv')
 
     # merge the two dataframes
+    '''
+    def merge(
+    left: DataFrame | Series,             拼接的左侧DataFrame对象
+    right: DataFrame | Series,            拼接的右侧DataFrame对象
+    how: str = "inner",                   'inner','outer','left','right' 交集，并集，只左采用左df的key，只右采用左df的key，
+    on: IndexLabel | None = None,
+    left_on: IndexLabel | None = None,    左侧DataFrame中的列或索引级别用作键
+    right_on: IndexLabel | None = None,   右侧DataFrame中的列或索引级别用作键
+    left_index: bool = False,
+    right_index: bool = False,
+    sort: bool = False,
+    suffixes: Suffixes = ("_x", "_y"),
+    copy: bool = True,
+    indicator: bool = False,
+    validate: str | None = None,
+    )-> DataFrame:
+    '''
     df = pd.merge(books_df, city_df, how='left', left_on=['Place_of_Publication'], right_on=['City'])
 
     # Group by Country and keep the country as a column
-    gb_df = df.groupby(['Country'], as_index=False)
+    '''
+    df.groupby(by,axis=0,as_index=True) 
+    函数返回的对象是一系列(key,values)，其中key是分组的字段值，value是该字段值下的table。
+    by :接收映射、函数、标签或标签列表；用于确定聚合的组。
+    axis : 接收 0/1；用于表示沿行(0)或列(1)分割。
+    as_index：接收布尔值，默认Ture；Ture则返回以组标签为索引的对象，False则不以组标签为索引。
+    '''
+    gb_df = df.groupby(by=['Country'], as_index=False)
 
     # Select a column (as far as it has values for all rows, you can select any column)
     df = gb_df['Identifier'].count()
