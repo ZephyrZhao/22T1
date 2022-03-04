@@ -21,10 +21,10 @@ def login():
         # request.from['nm'] 获取表单中name属性为 nm
         # input 标签 name属性规定了 input元素的名称，用于对提交到服务器后的表单进行标识
         # 只有 name 属性的表单元素才能再提交表单时传递值
-        user = request.form['nm']
+        user = request.form['user']
         return redirect(url_for('success',name = user))
     else:
-        user = request.args.get('nm')
+        user = request.args.get('user')
         return redirect(url_for('success',name = user))
  
 if __name__ == '__main__':

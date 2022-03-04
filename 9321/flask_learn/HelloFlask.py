@@ -17,4 +17,5 @@ if __name__ == '__main__':
    # app.run(host, port, debug, options)
    # host='0.0.0.0' 可以让服务器被公开访问。
    # 
-   app.run()
+   app.run(host='0.0.0.0')
+   
